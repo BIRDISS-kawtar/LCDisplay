@@ -3,19 +3,23 @@ export default {
     props:{
         received_input : Number
     },
-    updated(){
-        console.log("Updated");
-        /* if(!(Number.isInteger(this.received_input))){
-            //alert("Only Numbers are accepted !");
-        }   */    
-    },
     data(){
         return{
-
+            //inputs : new Array(),
+            //last_input : null
         };
-    }
+    },
+    updated(){
+        console.log("updated",this.received_input);
+        //this.inputs.push(this.received_input);
+        const elt = document.createElement('p');
+        elt.textContent = `Input Value =${this.received_input}`;
+        this.$refs.inputs_parent.appendChild(elt);
+    },
 }
 </script>
 <template>
-    <h1>Received Input is : {{received_input}}</h1>
+    <div ref="inputs_parent">
+
+    </div>
 </template>
