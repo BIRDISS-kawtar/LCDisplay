@@ -25,10 +25,10 @@ export default {
             // Verticals 
             for(let i=0;i<4;i++){
                 if(this.verticals[i] === 1){
-                    if( i%2 == 0){
+                    if( i%2 == 0){// V1
                         let addition_odd = 1/10 + (i*(9/40));
                         ctx.fillRect(0,this.canvas_height*addition_odd,this.canvas_width/5,this.canvas_height*(7/20));
-                    }else{
+                    }else{// V2
                         let addition_even = 1/10 + ((i-1)*(9/40));
                         ctx.fillRect(this.canvas_width*(4/5),this.canvas_height*addition_even,this.canvas_width/5,this.canvas_height*(7/20));
                     }
