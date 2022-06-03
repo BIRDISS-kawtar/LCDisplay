@@ -48,7 +48,7 @@ export default {
 <style scoped>
 .number_canvas{
     border-style : solid;
-    border-color : royalblue;
+    border-color : cornflowerblue;
     border-width: 8px;
 }
 </style>
