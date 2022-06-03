@@ -9,12 +9,12 @@ export default{
         };
     },
     components:{
-        ConvertToLCD
+        ConvertToLCD //Component converting the input into LCD format
     },
     methods:{
         getPressedNumber(event){
-            // Assure that the input is an integer 
-            this.input_value = parseInt(event.key);
+            /*-------------Assure that the input is an integer-------*/ 
+            this.input_value = parseInt(event.key); // Converting the Input value from String to Integer
             if(Number.isInteger(parseInt(this.input_value))){
                 this.toBesent_value = this.input_value;
             }
@@ -23,9 +23,9 @@ export default{
                     alert("Only numbers are accepted !")
                 }
             } 
+            /*-------------END : Assure that the input is an integer-------*/
         }
     },
-
 }
 </script>
 
@@ -45,6 +45,7 @@ export default{
         </div>  
 </template>
 <style scoped>
+/*------------Hiding defaults buttons of inputs of type number-----------*/
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -56,5 +57,5 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
-
+/*------------END : Hiding defaults buttons of inputs of type number-----------*/
 </style>

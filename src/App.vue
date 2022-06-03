@@ -10,6 +10,7 @@ export default{
 </script>
 
 <template>
+  <!------UserInput compoenent for getting user input--------->
   <UserInput />
 </template>
 

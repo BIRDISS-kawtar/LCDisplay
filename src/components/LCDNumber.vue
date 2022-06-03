@@ -12,7 +12,6 @@ export default {
         }
     },
     mounted(){
-        console.log("id is ",this.canvas_id);
         const canvas = document.getElementById(this.canvas_id);
         if (canvas.getContext) {
             const ctx = canvas.getContext('2d');

@@ -1,5 +1,5 @@
 <script>
-import { createVNode, isVNode, render, ref, createApp,h} from 'vue';
+import { createVNode, render} from 'vue';
 import app from '../main'
 import LCDNumber from './LCDNumber.vue';
 export default {
@@ -17,8 +17,15 @@ export default {
         };
     },
     updated(){
-        this.counter = this.counter +1;
+        /*-------------Making unique IDs for each canvas-------------*/
+        this.counter += 1; 
         this.component_props.canvas_id = "number_canvas"+this.counter;
+        /*-------------END : Making unique IDs for each canvas-------------*/
+        /***
+            NB : I presented a Number in LCD in format 
+            as a canvas where i drew 3 horizontal rectangles
+            and 4 vertical rectangles. Each rectangle have two states 0(Hidden)
+            or 1(visible) and that depenps on the input value  ***/
         switch(this.received_input){
             case 0:
                 this.component_props.horizontals = [1,0,1];
@@ -61,25 +68,19 @@ export default {
                 this.component_props.verticals = [1,1,0,1];
                 break;
         }
-        console.log("updated",this.component_props);
+        /*------------Draw programmatically a virtual node (canvas)-----------*/
         const container = document.createElement('div');
-        container.setAttribute("style","display : inline-block;");
+        container.setAttribute("style","display : inline-block;"); // To display numbers in rows 
         this.$refs.inputs_parent.appendChild(container);
-        const vnode = createVNode(LCDNumber,this.component_props);
+        const vnode = createVNode(LCDNumber,this.component_props);// Virtaul Node from the component LCDNumber
         vnode.appContext = app._context;
         render(vnode,container);
+        /*------------END : Draw programmatically a virtual node (canvas)-----------*/
     },
 }
 </script>
 <template>
-    <div id="inputs_parent" ref="inputs_parent" class="inputs_parent">
+    <div ref="inputs_parent">
 
     </div>
 </template>
-
-<style scoped>
-.inputs_parent{
-    border-collapse: separate;
-    border-spacing: 15px;
-}
-</style>
