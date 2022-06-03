@@ -11,7 +11,6 @@ export default{
 
 <template>
   <UserInput />
-  <!-- <LCDNumber :horizantls="[1,0,1]" :verticals="[1,0,1,1]"/> -->
 </template>
 
 <style>

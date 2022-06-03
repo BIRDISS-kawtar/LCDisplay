@@ -63,6 +63,7 @@ export default {
         }
         console.log("updated",this.component_props);
         const container = document.createElement('div');
+        container.setAttribute("style","display : inline-block;");
         this.$refs.inputs_parent.appendChild(container);
         const vnode = createVNode(LCDNumber,this.component_props);
         vnode.appContext = app._context;
@@ -71,7 +72,14 @@ export default {
 }
 </script>
 <template>
-    <div ref="inputs_parent">
+    <div id="inputs_parent" ref="inputs_parent" class="inputs_parent">
 
     </div>
 </template>
+
+<style scoped>
+.inputs_parent{
+    border-collapse: separate;
+    border-spacing: 15px;
+}
+</style>

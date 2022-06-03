@@ -4,7 +4,8 @@ export default{
     data(){
         return{
             input_value : null,
-            toBesent_value : null
+            toBesent_value : null,
+            input_style : `transform: translate(${(window.innerWidth/2)-149}px, 30%);`,
         };
     },
     components:{
@@ -29,12 +30,31 @@ export default{
 </script>
 
 <template>
-    <div>
-        <input id="numbers_input"
-               type="number" 
-               @keyup.prevent="getPressedNumber" 
-               v-model="input_value"
-        />
-        <ConvertToLCD :received_input="toBesent_value"/>
-    </div>
+        <div>
+            <h1>Numbers LCD Display</h1>
+            <div v-bind:style="input_style">
+                <label>Enter A Number Please ^_^  </label>
+                <input id="numbers_input"
+                    type="number" 
+                    @keyup.prevent="getPressedNumber" 
+                    v-model="input_value"
+                />
+            </div>
+            <br/>
+            <ConvertToLCD :received_input="toBesent_value"/>
+        </div>  
 </template>
+<style scoped>
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+</style>

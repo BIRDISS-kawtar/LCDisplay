@@ -42,6 +42,13 @@ export default {
 </script>
 
 <template>
-    <canvas v-bind:id="canvas_id" v-bind:width="canvas_width" v-bind:height="canvas_height" style="border-style : solid">
+    <canvas v-bind:id="canvas_id" v-bind:width="canvas_width" v-bind:height="canvas_height" class="number_canvas">
     </canvas>
 </template>
+<style scoped>
+.number_canvas{
+    border-style : solid;
+    border-color : royalblue;
+    border-width: 8px;
+}
+</style>
